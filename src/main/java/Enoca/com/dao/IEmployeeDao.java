@@ -8,5 +8,6 @@ public interface IEmployeeDao {
     void create(Employee e);
     void update(Employee e);
     void destroy(Long id);
+    Employee getEmployeeById(Long id);
     List <Employee> listAll();
 }

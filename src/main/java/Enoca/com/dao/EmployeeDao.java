@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.Id;
 import java.util.List;
-
+@Repository
 public class EmployeeDao implements IEmployeeDao{
     @Autowired
     private IEmployeeRepository employeeRepository;
@@ -23,6 +23,12 @@ public class EmployeeDao implements IEmployeeDao{
     @Override
     public void destroy(Long id) {
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public Employee getEmployeeById(Long id) {
+
+        return employeeRepository.findById(id).orElse(null);
     }
 
     @Override
